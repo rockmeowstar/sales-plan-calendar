@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#102a43" />
+    <title>План продаж</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <section id="login-screen" class="login-screen" aria-labelledby="login-title">
+      <form id="login-form" class="login-card">
+        <p class="eyebrow">ПЛАН ПРОДАЖ</p>
+        <h1 id="login-title">Вход</h1>
+        <p>Введите имя и пароль, чтобы открыть календарь.</p>
+        <label>Имя<input id="login-name" autocomplete="username" required /></label>
+        <label>Пароль<input id="login-password" type="password" autocomplete="current-password" required /></label>
+        <p id="login-error" class="login-error" role="alert"></p>
+        <button type="submit">Открыть план</button>
+      </form>
+    </section>
+    <main class="app-shell">
+      <header class="topbar">
+        <div>
+          <p class="eyebrow">ПЛАН НА 2 ГОДА</p>
+          <h1>Продажи</h1>
+        </div>
+        <div class="header-actions"><span id="user-name" class="user-name"></span><button id="logout" class="reset" type="button">Выйти</button><button id="reset" class="reset" type="button">Сбросить факты</button></div>
+      </header>
+
+      <section class="metrics" aria-label="Сводка плана">
+        <article><span>Базовая норма</span><strong>2 740 € <small>/ день</small></strong></article>
+        <article><span>Текущая норма</span><strong id="current-rate">—</strong></article>
+        <article><span>Факт</span><strong id="actual-total">0 €</strong></article>
+        <article><span>Остаток</span><strong id="remaining-total">—</strong></article>
+      </section>
+
+      <section class="focus-card" aria-labelledby="focus-title">
+        <div>
+          <p class="eyebrow" id="focus-date">СЕГОДНЯ</p>
+          <h2 id="focus-title">—</h2>
+          <p id="focus-description">Введите сегодняшний факт — план следующих дней обновится.</p>
+        </div>
+        <label class="fact-entry">Факт за сегодня, €
+          <input id="today-input" inputmode="decimal" autocomplete="off" aria-label="Факт за сегодня в евро" />
+        </label>
+      </section>
+
+      <section class="money-clock" aria-live="polite">
+        <div>
+          <p class="eyebrow">ТАЙМЕР ДЕНЕГ</p>
+          <h2>К этому моменту должно быть заработано в среднем</h2>
+        </div>
+        <strong id="earned-now">0 €</strong>
+        <span id="clock-detail">с начала дня</span>
+      </section>
+
+      <p class="legend"><i class="dot today"></i> Сегодня: план + факт <i class="dot future"></i> Будущее: план <i class="dot past"></i> Прошлое: факт</p>
+      <section id="calendar" class="calendar" aria-label="Календарь продаж на два года"></section>
+    </main>
+    <dialog id="confirm-dialog">
+      <p>Удалить все введённые факты?</p>
+      <div><button id="cancel-reset" type="button">Отмена</button><button id="confirm-reset" class="danger" type="button">Удалить</button></div>
+    </dialog>
+    <script src="./app.js"></script>
+  </body>
+</html>

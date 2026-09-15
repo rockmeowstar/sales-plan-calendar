@@ -1,0 +1,36 @@
+:root { --ink:#eaf4fb; --muted:#91a7b7; --line:#243c4d; --paper:#07131f; --card:#0d2130; --accent:#ff8154; --blue:#51b9ff; --mint:#163d39; font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; color:var(--ink); background:var(--paper); }
+* { box-sizing:border-box; }
+body { margin:0; } .app-shell { display:none; } body.authenticated .app-shell { display:block; } body.authenticated .login-screen { display:none; }
+button,input { font:inherit; }
+.app-shell { width:min(1480px, calc(100% - 32px)); margin:0 auto; padding:42px 0 72px; }
+.topbar { display:flex; justify-content:space-between; align-items:center; gap:16px; margin-bottom:26px; }.header-actions { display:flex; align-items:center; gap:8px; }.user-name { color:var(--muted); font-size:.85rem; }
+.eyebrow { margin:0 0 5px; color:var(--blue); font-size:.75rem; font-weight:800; letter-spacing:.12em; }
+h1,h2,p { margin-top:0; } h1 { margin-bottom:0; font-size:2.35rem; letter-spacing:-.055em; } h2 { margin-bottom:8px; font-size:1.35rem; }
+.reset { border:1px solid var(--line); background:transparent; color:var(--muted); padding:9px 12px; border-radius:8px; cursor:pointer; font-size:.88rem; }
+.metrics { display:grid; grid-template-columns:repeat(4,1fr); gap:12px; margin-bottom:14px; }
+.metrics article,.focus-card { background:var(--card); border:1px solid var(--line); border-radius:12px; box-shadow:0 8px 22px #00000028; }
+.metrics article { min-height:106px; padding:18px; display:flex; flex-direction:column; justify-content:space-between; }
+.metrics span { color:var(--muted); font-size:.82rem; } .metrics strong { font-size:1.37rem; letter-spacing:-.04em; } .metrics small { color:var(--muted); font-size:.8rem; font-weight:500; letter-spacing:0; }
+.focus-card { padding:20px 22px; display:flex; align-items:center; justify-content:space-between; gap:24px; border-left:5px solid var(--accent); }
+.focus-card p:last-child { margin:0; color:var(--muted); font-size:.92rem; }
+.money-clock { margin-top:14px; background:#102a43; color:#fff; border:1px solid #284d66; border-radius:12px; padding:18px 22px; display:grid; grid-template-columns:1fr auto; gap:2px 22px; align-items:center; }.money-clock .eyebrow { color:#9ed4ff; }.money-clock h2 { margin:0; font-size:.98rem; letter-spacing:-.02em; font-weight:600; }.money-clock strong { grid-row:span 2; font-size:1.7rem; letter-spacing:-.05em; color:#fff0e8; }.money-clock span { color:#b6c9d8; font-size:.76rem; }
+.fact-entry { display:grid; gap:6px; min-width:205px; color:var(--muted); font-size:.78rem; font-weight:700; }
+.fact-entry input { border:1px solid #3d5c70; border-radius:8px; padding:10px 12px; color:var(--ink); background:#091a27; font-size:1.1rem; font-weight:800; outline:none; }
+.fact-entry input:focus { border-color:var(--blue); box-shadow:0 0 0 3px #51b9ff22; }
+.legend { color:var(--muted); font-size:.78rem; display:flex; gap:7px; align-items:center; flex-wrap:wrap; margin:22px 0 12px; }
+.dot { width:8px; height:8px; border-radius:50%; display:inline-block; margin-left:9px; } .dot:first-child { margin-left:0; } .dot.today { background:var(--accent); } .dot.future { background:#668497; } .dot.past { background:#75d8ac; }
+.calendar { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:14px; }
+.month { background:var(--card); border:1px solid var(--line); border-radius:10px; overflow:hidden; min-width:0; }
+.month h3 { margin:0; padding:13px 14px 9px; font-size:1rem; text-transform:capitalize; }
+.weekdays,.days { display:grid; grid-template-columns:repeat(7,1fr); }
+.weekdays { border-bottom:1px solid var(--line); color:var(--muted); font-size:.64rem; font-weight:800; text-align:center; padding-bottom:6px; }
+.day { aspect-ratio:1/.92; min-width:0; border-right:1px solid #193345; border-bottom:1px solid #193345; padding:5px; position:relative; }
+.day:nth-child(7n) { border-right:0; } .empty { background:#0a1a27; }
+.day-num { display:block; font-size:.7rem; font-weight:800; margin-bottom:3px; }
+.value { display:block; width:100%; overflow:hidden; white-space:nowrap; text-overflow:ellipsis; color:var(--muted); font-size:.62rem; line-height:1.25; }
+.past .value { color:#75d8ac; font-weight:700; } .future .value { color:#91a7b7; } .day.today { background:#2c1d1c; box-shadow:inset 0 0 0 1.5px var(--accent); } .day.today .day-num { color:#ffab88; }
+.day input { width:100%; border:0; border-bottom:1px dashed #4b9c7b; background:transparent; padding:0; color:#75d8ac; font-size:.62rem; font-weight:800; outline:none; }
+.day input:focus { border-bottom-style:solid; } .day.today input { border-bottom-color:#ff9f7e; }
+.login-screen { min-height:100vh; display:grid; place-items:center; padding:20px; background:radial-gradient(circle at 15% 20%,#164d72 0,transparent 35%),linear-gradient(130deg,#06111c,#102c41); }.login-card { width:min(100%,390px); padding:30px; border:1px solid #28485e; border-radius:14px; background:#0d2130; box-shadow:0 20px 60px #000a; }.login-card h1 { margin-bottom:8px; }.login-card > p:not(.eyebrow):not(.login-error) { color:var(--muted); font-size:.92rem; }.login-card label { display:grid; gap:6px; color:var(--muted); font-size:.8rem; font-weight:700; margin-top:16px; }.login-card input { border:1px solid #3b596d; border-radius:8px; padding:11px; background:#091a27; color:var(--ink); outline:none; }.login-card input:focus { border-color:var(--blue); box-shadow:0 0 0 3px #51b9ff22; }.login-card button { width:100%; margin-top:22px; border:0; border-radius:8px; padding:12px; background:var(--accent); color:#fff; cursor:pointer; font-weight:800; }.login-error { min-height:1.2em; margin:12px 0 -4px; color:#ff9575; font-size:.85rem; }
+@media (max-width:1000px) { .calendar { grid-template-columns:repeat(2,minmax(0,1fr)); } }
+@media (max-width:640px) { .app-shell { width:min(100% - 20px, 520px); padding-top:24px; } h1 { font-size:2rem; } .topbar { align-items:flex-start; flex-direction:column; }.header-actions { width:100%; flex-wrap:wrap; }.metrics { grid-template-columns:repeat(2,1fr); } .metrics article { min-height:88px; padding:13px; } .metrics strong { font-size:1.05rem; } .focus-card { align-items:stretch; flex-direction:column; padding:17px; gap:14px; } .money-clock { grid-template-columns:1fr; gap:7px; }.money-clock strong { grid-row:auto; font-size:1.5rem; }.fact-entry { min-width:0; } .calendar { grid-template-columns:1fr; } .day { aspect-ratio:1.3/1; } }
